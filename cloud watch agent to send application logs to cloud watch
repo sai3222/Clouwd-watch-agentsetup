@@ -1,0 +1,20 @@
+https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/QuickStartEC2Instance.html
+
+installing cloud watch agent to send application logs to cloud watch:
+
+curl https://s3.amazonaws.com/aws-cloudwatch/downloads/latest/awslogs-agent-setup.py -O
+
+apt install python2 -y
+
+sudo python ./awslogs-agent-setup.py --region ap-south-1
+
+configure which files need to upload and give your log file path and name of log streams
+(if )
+Path of log file to upload [/var/log/syslog]: /var/log/nginx/access.log  (soure path in ec2)
+Destination Log Group name [/var/log/nginx/access.log]: ( this cloud watch group name)
+
+Enter Log Stream name [None]: nginx-acess-logs
+
+service awslogs start
+
+service awslogs enable
